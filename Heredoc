@@ -1,0 +1,21 @@
+交互式指令<<TAG
+test1
+test2
+...
+TAG
+TAG中间的内容将以标准输入的形式输入到“交互式指令”中。
+当shell看到“<<”，知道其后面的输入的分界符，当shell再次看到分界符时，两个分界符中的内容将作为标准输入。
+
+一种典型的用法就是Here document：
+:<<BLOCK
+
+...
+
+BLOCK
+其中:是shell的内置指令，表示nop，返回值为0/true。 :>file用于清空文件。
+
+<<< 为Here strings，是Here document的一个精简版本。
+command <<< "string"：表示用string作为命令的标准输入。
+
+详细教程
+https://www.baeldung.com/linux/heredoc-herestring
